@@ -6,10 +6,19 @@ def pascal_triangle(n):
     - You can assume n will be always an integer
 '''
 
+
 def pascal_triangle(n):
-    lists = []
+    triangle = []
+
     if n <= 0:
-        return lists
+        return triangle
     for i in range(n):
-        a_list = []
-        a_list.append(1)
+        row = []
+        for j in range(i + 1):
+            if (j == 0) or (j == i):
+                row.append(1)
+            else:
+                row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+        triangle.append(row)
+
+    return triangle
