@@ -12,7 +12,8 @@ lines = 0
 def print_stats():
     print(f"File size: {total_file_size}")
     for k, v in status_codes.items():
-        print(f"{k}: {v}")
+        if v != 0:
+            print(f"{k}: {v}")
 
 
 try:
