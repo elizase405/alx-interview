@@ -31,7 +31,7 @@ try:
         lines += 1
         if lines % 10 == 0:
             print_stats()
-    if lines == 0 or lines != 10:
+    if lines == 0 or lines % 10 != 0:
         print_stats()
 except KeyboardInterrupt:
     print_stats()
