@@ -16,10 +16,13 @@ def validUTF8(data):
     for i in range(0, data_length):
         data_bit = format(data[i], '08b')
         if data_bit.startswith('0') \
+        or data_bit.startswith('10') and len(data_bit) == 8\
         or data_bit.startswith('110') \
         or data_bit.startswith('1110') \
         or data_bit.startswith('11110'):
+            print(data_bit, end=" ")
             continue
         else:
             return False
+    print()
     return True
