@@ -20,9 +20,7 @@ def validUTF8(data):
         or data_bit.startswith('110') \
         or data_bit.startswith('1110') \
         or data_bit.startswith('11110'):
-            print(data_bit, end=" ")
             continue
         else:
             return False
-    print()
     return True
