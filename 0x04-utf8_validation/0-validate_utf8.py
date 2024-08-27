@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" validUTF8: determines if a given data set represents a valid UTF-8 encoding """
+""" validUTF8: determines if a given data set
+               represents a valid UTF-8 encoding
+"""
+
 
 def validUTF8(data):
     """
@@ -12,7 +15,10 @@ def validUTF8(data):
     data_length = len(data)
     for i in range(0, data_length):
         data_bit = format(data[i], '08b')
-        if data_bit.startswith('0') or data_bit.startswith('110') or data_bit.startswith('1110') or data_bit.startswith('11110'):
+        if data_bit.startswith('0') \
+        or data_bit.startswith('110') \
+        or data_bit.startswith('1110') \
+        or data_bit.startswith('11110'):
             continue
         else:
             return False
