@@ -11,7 +11,8 @@ def validUTF8(data):
 
     data_length = len(data)
     for i in range(0, data_length):
-        if data[i] <= 128:
+        data_bit = format(data[i], '08b')
+        if data_bit.startswith('0') or data_bit.startswith('110') or data_bit.startswith('1110') or data_bit.startswith('11110'):
             continue
         else:
             return False
