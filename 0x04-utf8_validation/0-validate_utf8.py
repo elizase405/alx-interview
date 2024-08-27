@@ -11,7 +11,7 @@ def validUTF8(data):
 
     data_length = len(data)
     for i in range(0, data_length):
-        if i <= 128:
+        if data[i] <= 128:
             continue
         else:
             return False
