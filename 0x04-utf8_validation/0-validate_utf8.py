@@ -12,9 +12,8 @@ def validUTF8(data):
         True if data is valid UTF-8 encoding, else return False
     """
 
-    data_length = len(data)
-    for i in range(0, data_length):
-        data_bit = format(data[i], '08b')
+    for byte in data:
+        data_bit = format(byte, '08b')
         if data_bit.startswith('0') \
         or data_bit.startswith('10') and len(data_bit) == 8\
         or data_bit.startswith('110') \
