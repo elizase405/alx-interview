@@ -4,23 +4,20 @@
 
 def island_perimeter(grid):
     """Returns the perimeter of the island described in grid"""
-    count = 0
-    row_no = -1
-    dict = {}
-    width = 0
-    breadth = 0
 
-    for row in grid:
-        row_no += 1
-        for i in row:
-            if i == 1:
-                count += 1
-        dict[row_no] = count
-        count = 0
-    for k, v in dict.items():
-        if v >= 1:
-            width += 1
-        if v > breadth:
-            breadth = v
-    perimeter = (2 * width) + (2 * breadth)
+    perimeter = 0
+    row_size = len(grid)
+    col_size = len(grid[0])
+
+    for row in range(row_size):
+        for col in range(col_size):
+            if grid[row][col] == 1:
+                if col - 1 < 0 or grid[row][col - 1] == 0:
+                    perimeter += 1
+                if col + 1 == col_size or grid[row][col + 1] == 0:
+                    perimeter += 1
+                if row - 1 < 0 or grid[row - 1][col] == 0:
+                    perimeter += 1
+                if row + 1 == row_size or grid[row + 1][col] == 0:
+                    perimeter += 1
     return perimeter
