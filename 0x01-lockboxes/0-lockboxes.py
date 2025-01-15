@@ -36,9 +36,15 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
             if new_key not in keys:
                 keys.append(new_key)
 
-    keys_len = len(keys)
+    #keys_len = len(keys)
     boxes_len = len(boxes)
+    #print(keys, keys_len, boxes_len)
 
-    if ((keys_len == (boxes_len - 1)) or (keys_len >= boxes_len)):
-        return True
-    return False
+    #if ((keys_len == (boxes_len - 1)) or (keys_len >= boxes_len)):
+        #return True
+    #return False
+
+    for i in range(1, boxes_len):
+        if i not in keys:
+            return False
+    return True
