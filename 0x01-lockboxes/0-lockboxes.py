@@ -31,23 +31,20 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
         keys.append(key)
 
     boxes_len = len(boxes)
+
     # Use the keys in the first box to open the other boxes.
     for key in keys:
+        # handle keys that are out of list range
         if key >= boxes_len:
             continue
         else:
-            #print(keys, key)
             for new_key in boxes[key]:
                 if new_key not in keys:
                     keys.append(new_key)
 
-    #keys_len = len(keys)
-    #print(keys, keys_len, boxes_len)
-
-    #if ((keys_len == (boxes_len - 1)) or (keys_len >= boxes_len)):
-        #return True
-    #return False
-
+    # if all the keys from box 1 to
+    # boxes_len - 1 are in the keys list
+    # then it is an unlocked box.
     for i in range(1, boxes_len):
         if i not in keys:
             return False
