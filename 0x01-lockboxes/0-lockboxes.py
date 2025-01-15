@@ -30,14 +30,18 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
     for key in boxes[0]:
         keys.append(key)
 
+    boxes_len = len(boxes)
     # Use the keys in the first box to open the other boxes.
     for key in keys:
-        for new_key in boxes[key]:
-            if new_key not in keys:
-                keys.append(new_key)
+        if key >= boxes_len:
+            continue
+        else:
+            #print(keys, key)
+            for new_key in boxes[key]:
+                if new_key not in keys:
+                    keys.append(new_key)
 
     #keys_len = len(keys)
-    boxes_len = len(boxes)
     #print(keys, keys_len, boxes_len)
 
     #if ((keys_len == (boxes_len - 1)) or (keys_len >= boxes_len)):
